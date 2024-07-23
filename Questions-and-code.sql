@@ -12,12 +12,6 @@ LEFT JOIN city
 ON address.city_id = city.city_id
 LEFT JOIN country
 ON city.country_id = country.country_id
-
-
-
-
-
-
 	
 /*
 2.	I would like to get a better understanding of all of the inventory that would come along with the business. 
@@ -30,10 +24,6 @@ SELECT
 FROM inventory
 	INNER JOIN film ON film.film_id = inventory.film_id
 
-
-
-
-
 /* 
 3.	From the same list of films you just pulled, please roll that data up and provide a summary level overview 
 of your inventory. We would like to know how many inventory items you have with each rating at each store. 
@@ -45,10 +35,6 @@ FROM inventory
 	INNER JOIN film ON film.film_id = inventory.film_id
 GROUP BY rating, store_id
 ORDER BY store_id
-
-
-
-
 
 /* 
 4. Similarly, we want to understand how diversified the inventory is in terms of replacement cost. We want to 
@@ -68,18 +54,6 @@ FROM film
 GROUP BY store_id, category.name
 ORDEr BY store_id
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 5.	We want to make sure you folks have a good handle on who your customers are. Please provide a list 
 of all customer names, which store they go to, whether or not they are currently active, 
@@ -94,16 +68,6 @@ LEFT JOIN city
 ON city.city_id = address.city_id
 LEFT JOIN country
 ON country.country_id = city.country_id
-
-
-
-
-
-
-
-
-
-
 
 /*
 6.	We would like to understand how much your customers are spending with you, and also to know 
@@ -121,17 +85,7 @@ LEFT JOIN rental ON rental.customer_id = customer.customer_id
 LEFT JOIN payment ON payment.rental_id = rental.rental_id
 GROUP BY first_name, last_name
 ORDER BY money_spent_$ DESC
-
-
-
-
-
-
-
-
-
-
-    
+   
 /*
 7. My partner and I would like to get to know your board of advisors and any current investors.
 Could you please provide a list of advisor and investor names in one table? 
@@ -143,17 +97,6 @@ FROM advisor
 UNION
 SELECT investor.first_name, investor.last_name, company_name, 'Invesotr' as type
 FROM investor
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 8. We're interested in how well you have covered the most-awarded actors. 
